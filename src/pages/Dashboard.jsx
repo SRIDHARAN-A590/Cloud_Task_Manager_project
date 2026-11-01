@@ -376,7 +376,6 @@ function Dashboard({ user }) {
               <label>Task Title</label>
               <input
                 type="text"
-                placeholder="e.g., Deploy Production API..."
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
@@ -385,7 +384,6 @@ function Dashboard({ user }) {
             <div className="form-group">
               <label>Description</label>
               <textarea
-                placeholder="Add task details, checklist, or instructions..."
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               ></textarea>
