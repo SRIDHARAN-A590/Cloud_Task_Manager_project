@@ -1,13 +1,29 @@
 {
-  "version": 2,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "cloud-task-manager-frontend": {
+      "root": ".",
+      "framework": "create-react-app",
+      "buildCommand": "npm install && npm run build"
+    },
+    "cloud-task-manager-backend": {
+      "root": "backend",
+      "framework": "express",
+      "buildCommand": "npm install"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/index.js"
+      "destination": {
+        "service": "cloud-task-manager-backend"
+      }
     },
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": {
+        "service": "cloud-task-manager-frontend"
+      }
     }
   ]
 }
