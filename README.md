@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Cloud Task Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack task management application with Auth0 authentication, MongoDB Atlas storage, and Dropbox cloud attachment backups.
 
-## Available Scripts
+## Repository Structure
 
-In the project directory, you can run:
+```text
+Cloud_Task_Manager_project/
+│
+├── backend/
+│   ├── package.json
+│   ├── server.js
+│   └── .env.example
+│
+├── frontend/
+│   ├── package.json
+│   ├── public/
+│   ├── src/
+│   └── .env.example
+│
+├── vercel.json
+├── render.yaml
+└── README.md
+```
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Auth0 Authentication**: Secure login & logout with user session management.
+- **Task Management**: Create, view, edit, priority filter, search, and delete tasks.
+- **MongoDB Atlas Integration**: Cloud persistence for all task documents.
+- **Dropbox Cloud Attachments**: Direct document uploads with shareable Dropbox links.
+- **Modern UI**: Designed with Vibrant Teal, Bright Coral, Sunny Yellow, and Soft Mint White, featuring responsive cards and smooth micro-animations.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Local Setup
 
-### `npm test`
+### 1. Backend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+cd backend
+npm install
+npm start
+```
+Runs on `http://localhost:5000`.
 
-### `npm run build`
+### 2. Frontend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd frontend
+npm install
+npm start
+```
+Runs on `http://localhost:3000`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Vercel (Multi-Service)
+The repository is pre-configured with `vercel.json` to deploy both services in a single project:
+- **Frontend root**: `frontend` (Create React App)
+- **Backend root**: `backend` (Express Node.js)
+- **Routing**: `/api/*` rewrites to backend, `/*` rewrites to frontend.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Environment Variables
+Configure the following in your hosting provider settings:
+- **Backend**: `MONGODB_URI`
+- **Frontend**: `REACT_APP_AUTH0_DOMAIN`, `REACT_APP_AUTH0_CLIENT_ID`, `REACT_APP_DROPBOX_ACCESS_TOKEN`

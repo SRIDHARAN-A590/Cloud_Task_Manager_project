@@ -1,5 +1,5 @@
 {
-  "name": "firebase-react-crud",
+  "name": "cloud-task-manager-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
