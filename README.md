@@ -19,7 +19,6 @@ Cloud_Task_Manager_project/
 │   └── .env.example
 │
 ├── vercel.json
-├── render.yaml
 └── README.md
 ```
 

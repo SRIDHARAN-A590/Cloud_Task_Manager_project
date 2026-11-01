@@ -124,7 +124,7 @@ app.delete("/api/tasks/:id", async (req, res) => {
     }
 });
 
-// Start server when executed directly (local or Render)
+// Start server when executed directly (local development)
 if (require.main === module) {
     connectDB().then(() => {
         app.listen(PORT, () => {
