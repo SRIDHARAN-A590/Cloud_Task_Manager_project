@@ -1,39 +1,58 @@
 :root {
-  --bg-primary: #0a0e17;
-  --bg-secondary: #0f172a;
-  --bg-card: rgba(17, 24, 39, 0.75);
-  --bg-card-hover: rgba(30, 41, 59, 0.85);
-  --bg-input: rgba(15, 23, 42, 0.65);
+  /* Vibrant & Refreshing Mint-Teal Theme */
+  --bg-primary: #F4F9F4;
+  --bg-secondary: #EAF4EE;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FFFFFF;
+  --bg-input: #FFFFFF;
   
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-focus: rgba(99, 102, 241, 0.5);
-  --border-glow: rgba(99, 102, 241, 0.25);
+  --teal-primary: #00A896;
+  --teal-dark: #028090;
+  --teal-light: #E6F8F5;
+  --teal-border: rgba(0, 168, 150, 0.25);
   
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
-  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
-  --accent-glow: 0 0 25px rgba(99, 102, 241, 0.35);
+  --coral-accent: #FF6B6B;
+  --coral-light: #FFF0F0;
+  --coral-border: rgba(255, 107, 107, 0.3);
   
-  --text-main: #f9fafb;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
+  --yellow-accent: #FFE66D;
+  --yellow-dark: #B89600;
+  --yellow-light: #FFFDEB;
+  --yellow-border: rgba(255, 230, 109, 0.6);
   
-  --priority-high: #f43f5e;
-  --priority-high-bg: rgba(244, 63, 94, 0.12);
-  --priority-high-border: rgba(244, 63, 94, 0.25);
+  --primary: #00A896;
+  --primary-hover: #028090;
+  --primary-gradient: linear-gradient(135deg, #00A896 0%, #028090 100%);
+  --accent-glow: 0 10px 25px -5px rgba(0, 168, 150, 0.35);
   
-  --priority-med: #f59e0b;
-  --priority-med-bg: rgba(245, 158, 11, 0.12);
-  --priority-med-border: rgba(245, 158, 11, 0.25);
+  --text-main: #0B3C35;
+  --text-heading: #007A6C;
+  --text-muted: #3D6A62;
+  --text-dim: #7FAAA1;
   
-  --priority-low: #10b981;
-  --priority-low-bg: rgba(16, 185, 129, 0.12);
-  --priority-low-border: rgba(16, 185, 129, 0.25);
+  --border-subtle: #D8ECE2;
+  --border-focus: #00A896;
+  --border-glow: rgba(0, 168, 150, 0.2);
   
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
+  --priority-high: #FF6B6B;
+  --priority-high-bg: #FFF0F0;
+  --priority-high-border: #FFC9C9;
+  
+  --priority-med: #B8860B;
+  --priority-med-bg: #FFFDEB;
+  --priority-med-border: #FFE66D;
+  
+  --priority-low: #00A896;
+  --priority-low-bg: #E6F8F5;
+  --priority-low-border: #B2EBE4;
+  
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
   --radius-full: 9999px;
+  
+  --shadow-card: 0 8px 24px -4px rgba(0, 168, 150, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 16px 32px -6px rgba(0, 168, 150, 0.16), 0 6px 12px -2px rgba(0, 0, 0, 0.04);
   
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
@@ -50,9 +69,9 @@ body {
   font-family: var(--font-body);
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.18) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.14) 0px, transparent 50%),
-    radial-gradient(at 50% 100%, rgba(139, 92, 246, 0.12) 0px, transparent 55%);
+    radial-gradient(at 0% 0%, rgba(0, 168, 150, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(255, 230, 109, 0.15) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(255, 107, 107, 0.08) 0px, transparent 60%);
   background-attachment: fixed;
   color: var(--text-main);
   min-height: 100vh;
@@ -73,14 +92,14 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-secondary);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: #A9D5CB;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: #00A896;
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.35);
-  color: #ffffff;
+  background: rgba(0, 168, 150, 0.25);
+  color: #053C36;
 }
