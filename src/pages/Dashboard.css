@@ -1,4 +1,4 @@
-/* Dashboard Layout - Mint, Teal, Coral & Yellow Theme */
+/* Dashboard Layout - Vibrant Teal, Bright Coral, Sunny Yellow & Soft Mint White */
 .dashboard {
   min-height: 100vh;
   display: flex;
@@ -22,6 +22,7 @@
   align-items: center;
   padding: 16px 36px;
   box-shadow: 0 4px 20px -2px rgba(0, 168, 150, 0.08);
+  transition: all 0.3s ease;
 }
 
 .nav-brand {
@@ -30,6 +31,7 @@
   gap: 12px;
 }
 
+/* Subtle Floating Cloud Animation */
 .brand-icon {
   width: 44px;
   height: 44px;
@@ -41,6 +43,12 @@
   font-size: 22px;
   box-shadow: 0 6px 16px -2px rgba(0, 168, 150, 0.4);
   color: white;
+  animation: gentleFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes gentleFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
 }
 
 .brand-title {
@@ -60,6 +68,11 @@
   background: #FFE66D;
   color: #7A5C00;
   border: 1px solid rgba(255, 230, 109, 0.8);
+  transition: transform 0.2s ease;
+}
+
+.brand-badge-cloud:hover {
+  transform: scale(1.05);
 }
 
 .nav-user {
@@ -77,6 +90,11 @@
   padding: 6px 14px 6px 8px;
   border-radius: var(--radius-full);
   box-shadow: 0 2px 8px rgba(0, 168, 150, 0.08);
+  transition: all 0.2s ease;
+}
+
+.user-chip:hover {
+  box-shadow: 0 4px 12px rgba(0, 168, 150, 0.15);
 }
 
 .user-avatar {
@@ -115,17 +133,21 @@
   font-size: 13.5px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .logout-btn:hover {
   background: #FF6B6B;
   color: #FFFFFF;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: 0 4px 14px rgba(255, 107, 107, 0.35);
 }
 
-/* Dashboard Container */
+.logout-btn:active {
+  transform: translateY(0);
+}
+
+/* Dashboard Container with Smooth Fade-In */
 .main-content {
   max-width: 1180px;
   width: 100%;
@@ -134,6 +156,18 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+  animation: contentFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes contentFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Stats Overview Bar */
@@ -153,10 +187,12 @@
   gap: 18px;
   box-shadow: var(--shadow-card);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .stat-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
   border-color: #00A896;
 }
@@ -169,6 +205,11 @@
   align-items: center;
   justify-content: center;
   font-size: 25px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-card:hover .stat-icon-wrapper {
+  transform: scale(1.1) rotate(4deg);
 }
 
 .stat-icon-total {
@@ -214,6 +255,7 @@
   box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .task-form-card::before {
@@ -248,6 +290,12 @@
   border-radius: var(--radius-full);
   font-size: 12.5px;
   font-weight: 700;
+  animation: editPulse 2s ease-in-out infinite;
+}
+
+@keyframes editPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .form-grid {
@@ -266,6 +314,7 @@
   font-size: 14px;
   font-weight: 700;
   color: #0B3C35;
+  transition: color 0.2s ease;
 }
 
 .form-group input,
@@ -279,13 +328,8 @@
   border-radius: var(--radius-sm);
   font-family: var(--font-body);
   font-size: 14.5px;
-  transition: all 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   outline: none;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #7FAAA1;
 }
 
 .form-group input:focus,
@@ -294,6 +338,7 @@
   border-color: #00A896;
   box-shadow: 0 0 0 4px rgba(0, 168, 150, 0.15);
   background: #FFFFFF;
+  transform: translateY(-1px);
 }
 
 .form-group textarea {
@@ -313,7 +358,7 @@
   }
 }
 
-/* Custom File Upload Area */
+/* Custom File Upload Area with Micro-Interactions */
 .file-upload-zone {
   border: 2px dashed #00A896;
   border-radius: var(--radius-md);
@@ -321,13 +366,14 @@
   text-align: center;
   background: #F4F9F4;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
 }
 
 .file-upload-zone:hover {
   background: #E6F8F5;
   border-color: #028090;
+  transform: translateY(-2px);
 }
 
 .file-upload-zone input[type="file"] {
@@ -347,6 +393,11 @@
 .file-prompt-icon {
   font-size: 28px;
   margin-bottom: 2px;
+  transition: transform 0.25s ease;
+}
+
+.file-upload-zone:hover .file-prompt-icon {
+  transform: translateY(-3px) scale(1.1);
 }
 
 .file-cloud-note {
@@ -366,6 +417,12 @@
   color: #007A6C;
   font-size: 14px;
   font-weight: 700;
+  animation: badgePop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes badgePop {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 .remove-file-btn {
@@ -376,6 +433,11 @@
   font-weight: bold;
   cursor: pointer;
   padding: 0 4px;
+  transition: transform 0.2s ease;
+}
+
+.remove-file-btn:hover {
+  transform: scale(1.25);
 }
 
 /* Form Action Buttons */
@@ -396,7 +458,7 @@
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 8px 20px -4px rgba(0, 168, 150, 0.4);
   display: flex;
   align-items: center;
@@ -408,6 +470,10 @@
   filter: brightness(1.08);
   transform: translateY(-2px);
   box-shadow: 0 12px 24px -4px rgba(0, 168, 150, 0.5);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.99);
 }
 
 .submit-btn:disabled {
@@ -432,6 +498,11 @@
 .cancel-btn:hover {
   background: #FF6B6B;
   color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.cancel-btn:active {
+  transform: translateY(0);
 }
 
 /* Tasks Display Section */
@@ -470,6 +541,7 @@
   padding: 4px 12px;
   border-radius: var(--radius-full);
   border: 1px solid rgba(255, 230, 109, 0.8);
+  transition: transform 0.2s ease;
 }
 
 .tasks-filter-group {
@@ -489,13 +561,14 @@
   font-size: 14px;
   outline: none;
   min-width: 220px;
-  transition: all 0.2s;
+  transition: all 0.25s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .search-input:focus {
   border-color: #00A896;
   box-shadow: 0 0 0 3px rgba(0, 168, 150, 0.15);
+  transform: translateY(-1px);
 }
 
 .priority-tabs {
@@ -517,7 +590,7 @@
   padding: 7px 14px;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tab-btn:hover {
@@ -528,9 +601,15 @@
   background: #00A896;
   color: #FFFFFF;
   box-shadow: 0 2px 6px rgba(0, 168, 150, 0.35);
+  animation: tabScale 0.2s ease forwards;
 }
 
-/* Task Cards Grid */
+@keyframes tabScale {
+  0% { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+
+/* Task Cards Grid with Subtle Stagger Fade */
 .tasks-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -548,10 +627,22 @@
   gap: 18px;
   box-shadow: var(--shadow-card);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: cardFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .task-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   border-color: #00A896;
   box-shadow: var(--shadow-hover);
 }
@@ -572,7 +663,7 @@
   letter-spacing: -0.01em;
 }
 
-/* Priority Badges */
+/* Priority Badges with High-Priority Beacon Animation */
 .priority-badge {
   display: inline-flex;
   align-items: center;
@@ -584,6 +675,11 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.task-card:hover .priority-badge {
+  transform: scale(1.04);
 }
 
 .priority-badge.high {
@@ -609,6 +705,22 @@
   height: 7px;
   border-radius: 50%;
   background: currentColor;
+}
+
+/* Soft pulsating beacon dot for high priority */
+.priority-badge.high .priority-dot {
+  animation: pulseBeacon 2s ease-in-out infinite;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.65;
+  }
 }
 
 .task-desc {
@@ -640,7 +752,7 @@
   font-size: 15px;
 }
 
-/* Dropbox File Pill */
+/* Dropbox File Pill Micro-Interaction */
 .task-file-attachment {
   display: inline-flex;
   align-items: center;
@@ -653,14 +765,15 @@
   font-weight: 700;
   color: #007A6C;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   word-break: break-all;
 }
 
 .task-file-attachment:hover {
   background: #00A896;
   color: #FFFFFF;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 168, 150, 0.25);
 }
 
 .cloud-chip {
@@ -670,6 +783,7 @@
   color: #7A5C00;
   padding: 2px 7px;
   border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
 .task-file-attachment:hover .cloud-chip {
@@ -694,13 +808,18 @@
   font-size: 13.5px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-card-edit:hover {
   background: #00A896;
   color: #FFFFFF;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 168, 150, 0.2);
+}
+
+.btn-card-edit:active {
+  transform: translateY(0);
 }
 
 .btn-card-delete {
@@ -714,13 +833,18 @@
   font-size: 13.5px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-card-delete:hover {
   background: #FF6B6B;
   color: #FFFFFF;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.25);
+}
+
+.btn-card-delete:active {
+  transform: translateY(0);
 }
 
 /* Empty State */
@@ -732,11 +856,13 @@
   text-align: center;
   color: #3D6A62;
   box-shadow: var(--shadow-card);
+  animation: cardFadeIn 0.35s ease;
 }
 
 .empty-icon {
   font-size: 46px;
   margin-bottom: 12px;
+  animation: gentleFloat 3.5s ease-in-out infinite alternate;
 }
 
 .empty-tasks h3 {
@@ -751,7 +877,7 @@
   color: #7FAAA1;
 }
 
-/* Toast Notifications */
+/* Toast Notifications with Slide-in */
 .toast-container {
   position: fixed;
   top: 24px;
@@ -780,6 +906,11 @@
   animation: toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   border: 1.5px solid #D8ECE2;
   border-left: 5px solid var(--primary);
+  transition: transform 0.2s ease;
+}
+
+.toast:hover {
+  transform: translateY(-2px);
 }
 
 @keyframes toastSlideIn {
@@ -854,9 +985,10 @@
   cursor: pointer;
   padding: 0 4px;
   line-height: 1;
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s;
 }
 
 .toast-close:hover {
   color: #0B3C35;
+  transform: scale(1.2);
 }
