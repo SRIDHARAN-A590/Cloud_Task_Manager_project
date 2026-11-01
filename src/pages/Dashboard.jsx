@@ -3,7 +3,12 @@ import React, { useState, useEffect, useRef, useMemo } from "react";
 import dbx from "../dropbox";
 import "./Dashboard.css";
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const API_BASE_URL =
+  process.env.REACT_APP_API_URL !== undefined
+    ? process.env.REACT_APP_API_URL
+    : window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "";
 
 function Dashboard({ user }) {
   const [tasks, setTasks] = useState([]);
